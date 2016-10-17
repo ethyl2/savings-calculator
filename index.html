@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jump for Joy</title>
+		<link href="styles/my_style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="header">
+			<h1>Jump for Joy Sale</h1>
+		</div>
+		<div id="main">
+			<div class="guess_box"><img src="images/jump1.jpg"/></div>
+			<div class="guess_box"><img src="images/jump2.jpg"/></div>
+			<div class="guess_box"><img src="images/jump3.jpg"/></div>
+			<div class="guess_box"><img src="images/jump4.jpg"/></div>
+		</div>
+
+		<div id="savings_calculator">
+			<h2>Savings Calculator:</h2>
+			<p>Original Price:</p>
+			$<input id="original_price" type="number" min="0.01" step="0.01" max="2500"
+				value="100"></input>
+			<button type="submit">Submit</button>
+			<p id="final_discount"></p>
+			<p id="final_price"></p>
+		</div>
+
+		<script src="scripts/jquery-1.6.2.min.js"></script>
+		<script>
+			var discount = 0;
+			var final_cost;
+
+			$(document).ready(function() {
+				$(".guess_box").click(function() {
+					$(".guess_box p").remove();
+					discount = Math.floor(Math.random() * 6) + 5;
+					var discount_msg = "<p>Your discount is " + discount + "%!</p>";
+					$(this).append(discount_msg);
+					$("#final_discount").html("with " + discount + "% savings =");
+					final_cost = ((100 - discount) * $("#original_price").val() /100).toFixed(2);
+					$("#final_price").html("$" + final_cost);
+
+				});
+
+				$("button").click(function() {
+					$("#final_discount").html("with " + discount + "% savings =");
+					final_cost = ((100 - discount) * $("#original_price").val() /100).toFixed(2);
+					$("#final_price").html("$" + final_cost);
+				});
+			});
+
+
+
+		</script>
+	</body>
+</html>
