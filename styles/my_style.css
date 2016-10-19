@@ -25,7 +25,7 @@ img {
 #header{
  	width:100%;
  	border: 0px;
- 	height:50px;
+ 	height: 150px;
 }
 
 #main{
@@ -47,4 +47,21 @@ img {
 
 h2 {
 	color: black;
+}
+
+.my_hover {
+	border: 3px solid pink;
+}
+
+.discount {
+	border: solid #0F0 3px;
+}
+
+.no_discount {
+	border: solid #F00 3px;
+}
+
+.result {
+	display: block;
+	clear: both;
 }
